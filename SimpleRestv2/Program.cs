@@ -1,6 +1,7 @@
 using SimpleRestv2;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design; 
+using Microsoft.EntityFrameworkCore.Design;
+using SimpleRestv2.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ builder.Services.AddMvc(options =>
     options.SuppressAsyncSuffixInActionNames = false; 
 });
 builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
+builder.Services.AddDbContext<CyberarkDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
 
