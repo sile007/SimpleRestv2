@@ -22,6 +22,7 @@ builder.Services.AddDbContext<CyberarkDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,6 +33,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials()
+    ); 
 
 app.UseAuthorization();
 
