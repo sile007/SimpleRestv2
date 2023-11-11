@@ -6,9 +6,8 @@ namespace SimpleRestv2.Models
     {
         [Key]
         public int Id { get; set; }
-        public string UID { get; set; }
-        public string Environment { get; set; }
-        public string Client { get; set; }
+        public string APP { get; set; }
+        public string Data { get; set; }
         
     }
 }

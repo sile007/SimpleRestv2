@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace SimpleRestv2.Migrations.CyberarkDb
+namespace SimpleRestv2.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPrimaryKeyToTask : Migration
+    public partial class Initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,9 +16,8 @@ namespace SimpleRestv2.Migrations.CyberarkDb
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Environment = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Client = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    APP = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
